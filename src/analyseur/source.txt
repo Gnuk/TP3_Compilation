@@ -1,0 +1,8 @@
+let prixHt = 200; /* déclaration et initialisation */
+let prixTtc =  prixHt * 119 / 100;
+-prixTtc + 100;  /* unaire qui précède une variable */
+14 / x;          /* erreur */
+5 # + 2;         /* erreur, il faut le signaler */
+10 * 3;          /* reste ligne est commentaire */
+5;
+/* fin */

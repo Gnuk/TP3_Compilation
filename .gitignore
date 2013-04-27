@@ -1,3 +1,14 @@
 # Fichiers à ignorer
+
+## Sauvegarde
+*~
+*.bak
+
+## Java
 bin/
 *.class
+
+## Code généré
+src/analyseur/AnalyseurLexical.java
+src/analyseur/parser.java
+src/analyseur/sym.java
