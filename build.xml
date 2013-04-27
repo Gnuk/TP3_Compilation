@@ -1,0 +1,39 @@
+<project name="CompileCup" default="run" basedir=".">
+	<property name= "sourceCup" value= "src/analyseur/AnalyseurSyntaxique.cup"/>
+	<property name= "source" value= "src/analyseur/source.txt"/>
+	<property name= "executable" value= "analyseur.Main"/>	
+
+	<target name="cup-task">
+		<java jar="lib/java-cup-11a.jar" fork="true">
+			<classpath>
+				<pathelement path="java_cup.Main"/>
+			</classpath>
+			<arg value="-dump" />
+			<arg value="${sourceCup}" />
+		</java>
+	</target>
+	
+	<target name="deplacer">
+		<move file="parser.java" todir="src/analyseur" />
+		<move file="sym.java" todir="src/analyseur" />
+	</target>
+	
+	<target name="compile" description="Compilation des classes">
+		<javac srcdir="src" classpath="lib/java-cup-11a.jar" includeantruntime="false" >
+		</javac>
+	</target>
+	
+	<target name="execute" description="Execution du main" >
+		<java classname="${executable}" fork="true">
+			<classpath>
+				<pathelement path="bin"/>
+				<pathelement path="lib/java-cup-11a.jar"/>
+			</classpath>
+			<arg value="${source}" />
+		</java>
+	</target>
+	
+	<target name="run" depends="cup-task,deplacer,compile,execute">
+		
+	</target>
+</project>
