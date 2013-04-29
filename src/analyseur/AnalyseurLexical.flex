@@ -34,7 +34,7 @@ import java_cup.runtime.Symbol;
 	return new Symbol(sym.EOF) ;
 %eofval}
 %%
-[0-9]+ {return new Symbol(sym.ARBRE,yyline,yycolumn,new Noeud(yytext()));}
+[0-9]+ {return new Symbol(sym.ENTIER,yyline,yycolumn,new Noeud(yytext()));}
 
 "let" {return new Symbol(sym.LET,yyline,yycolumn);}
 

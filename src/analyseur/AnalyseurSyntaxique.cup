@@ -61,7 +61,7 @@ parser code {:
 
 /* Symboles terminaux */
 terminal PLUS, MOINS, MULT, DIVIDE, PAR_G, PAR_D,POINT_VIRGULE, MOD, UMOINS,  LET, EGAL;
-terminal Noeud ARBRE; 
+terminal Noeud ENTIER; 
 terminal String VARIABLE;
 
 /* Symboles non terminaux */
@@ -156,7 +156,7 @@ LET VARIABLE:e1 EGAL expr:e2
 	*/
 :} |	
 	
-ARBRE:n 
+ENTIER:n 
 {: 
 	RESULT=  n;
 :} |
