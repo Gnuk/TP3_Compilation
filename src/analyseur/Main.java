@@ -38,5 +38,6 @@ public class Main
 			Symbol result = p.parse( );
 			Noeud tree = (Noeud)(result.value);
 			tree.show();
+			tree.showParcoursGauche();
 	}
 }

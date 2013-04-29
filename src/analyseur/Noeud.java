@@ -90,6 +90,17 @@ public class Noeud {
 		}
 	}
 	
+	public String parcoursGauche(){
+		String elem = "";
+		if(this.filsGauche != null){
+			elem += this.filsGauche.parcoursGauche();
+		}
+		if(this.filsDroit != null){
+			elem += this.filsDroit.parcoursGauche();
+		}
+		return elem + " -> " + this.racine;
+	}
+	
 	/**
 	 * Affiche l'arbre sous forme textuelle
 	 */
@@ -97,4 +108,7 @@ public class Noeud {
 		System.out.println(this.toString());
 	}
 
+	public void showParcoursGauche(){
+		System.out.println(this.parcoursGauche());
+	}
 }

@@ -57,10 +57,10 @@ non terminal Noeud seq_expressions, expression;
 non terminal Noeud expr;
  
 /* Precedences */
+precedence left LET, EGAL, VARIABLE;
 precedence left PLUS, MOINS;
 precedence left MULT, DIVIDE, MOD;
 precedence left UMOINS;
-precedence left LET, EGAL, VARIABLE;
 
 /* Grammaire */
 seq_expressions::= expression:e1 seq_expressions:e2 
@@ -131,7 +131,7 @@ expr:e1 DIVIDE expr:e2
 VARIABLE:identifiant 
 {: 
 	if(variables.containsKey(identifiant)){
-   		RESULT= variables.get(identifiant);
+   		RESULT= new Noeud(identifiant);
    	}
     else
     {
