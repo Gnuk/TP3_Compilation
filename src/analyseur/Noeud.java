@@ -77,13 +77,13 @@ public class Noeud {
 	public String toString(){
 
 		if(this.filsDroit != null && this.filsGauche != null){
-			return this.racine + "(" + this.filsGauche.toString() + " " +  this.filsDroit.toString()+")";
+			return "(" + this.racine + this.filsGauche.toString() + " " +  this.filsDroit.toString()+")";
 		}
 		else if(this.filsDroit != null){
-			return this.racine + this.filsDroit.toString();
+			return "(" + this.racine + this.filsDroit.toString()+")";
 		}
 		else if(this.filsGauche != null){
-			return this.racine + this.filsGauche.toString();
+			return "(" + this.racine + this.filsGauche.toString()+")";
 		}
 		else{
 			return this.racine;

@@ -56,7 +56,7 @@ import java_cup.runtime.Symbol;
 
 "mod" {return new Symbol(sym.MOD,yyline, yycolumn);}
 
-#|[a-z][a-zA-Z]* {return new Symbol(sym.VARIABLE,yyline,yycolumn,yytext());}
+"#"|[a-z][a-zA-Z]* {return new Symbol(sym.VARIABLE,yyline,yycolumn,yytext());}
 
 \n { ; /* on fait rien */ }
 

@@ -53,7 +53,7 @@ terminal Noeud ENTIER;
 terminal String VARIABLE;
 
 /* Symboles non terminaux */
-non terminal seq_expressions, expression;
+non terminal Noeud seq_expressions, expression;
 non terminal Noeud expr;
  
 /* Precedences */
@@ -63,7 +63,15 @@ precedence left UMOINS;
 precedence left LET, EGAL, VARIABLE;
 
 /* Grammaire */
-seq_expressions::= expression seq_expressions | expression ;
+seq_expressions::= expression:e1 seq_expressions:e2 
+{:
+	//System.out.println("Je passe par seq_expressions");
+	RESULT=new Noeud(";",e1,e2);
+:} |
+	expression:e {:
+		//System.out.println("Je passe par expression");
+		RESULT=e;
+	:};
 
 expression::= expr:e
 {: 	
@@ -79,8 +87,9 @@ expression::= expr:e
 		erreur = false;
 	}
 	else{
-		e.show();
+		//e.show();
 	} 
+	RESULT=e;
 :} POINT_VIRGULE | error POINT_VIRGULE ;
 
 expr::=MOINS expr:e

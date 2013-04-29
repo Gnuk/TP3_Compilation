@@ -36,5 +36,7 @@ public class Main
 			yy = new AnalyseurLexical(System.in) ;
 			parser p = new parser(yy);
 			Symbol result = p.parse( );
+			Noeud tree = (Noeud)(result.value);
+			tree.show();
 	}
 }
